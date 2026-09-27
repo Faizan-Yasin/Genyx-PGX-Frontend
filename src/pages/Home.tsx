@@ -2,6 +2,7 @@ import BenefitStrip from "../components/BenefitStrip"
 import Hero from "../components/hero/Hero"
 import Navbar from "../components/Navbar"
 import PlatformFeatures from "../components/PlatformFeatures"
+import HowItWorks from "../components/HowItWorks"
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
                 <Hero />
                 <BenefitStrip />
                 <PlatformFeatures />
+                <HowItWorks/>
             </main>
         </div>
     )

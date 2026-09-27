@@ -121,7 +121,7 @@ const HeroLeft = () => {
                 </span>
             </h1>
 
-            <p className="mt-6 max-w-120 md:max-w-150 text-center lg:text-left lg:max-w-125 text-[16px] leading-[1.55] text-[#B9CDD7] sm:text-[17px] lg:text-[18px]">
+            <p className="mt-6 max-w-85 sm:max-w-110 md:max-w-125 lg::max-w-150 text-center lg:text-left lg:max-w-125 text-[16px] leading-[1.55] text-[#B9CDD7] sm:text-[17px] lg:text-[18px]">
                 Turn genetic data into a clearer understanding of how your genes
                 may affect medication response.
             </p>

@@ -43,15 +43,15 @@ const PlatformFeatures = () => {
             <div className="mx-auto max-w-360 px-6 sm:px-8 lg:px-10 xl:px-12">
 
                 <div className="max-w-240">
-                    <span className="text-[11px] font-bold tracking-[1.4px] text-[#246D69] uppercase sm:text-[12px]">
+                    <span className="text-[11px] font-bold text-center block lg:inline lg:text-left tracking-[1.4px] text-[#246D69] uppercase sm:text-[12px]">
                         THE PLATFORM
                     </span>
 
-                    <h2 className="mt-2.5 text-[32px] font-bold tracking-[-0.8px] text-[#0B2535] sm:text-[39px] sm:leading-[1.1] lg:text-[46px] xl:tracking-[-1.2px]">
+                    <h2 className="mt-2.5 text-[32px] leading-tight font-bold text-center lg:text-left tracking-[-0.8px] text-[#0B2535] sm:text-[39px] sm:leading-[1.1] lg:text-[46px] xl:tracking-[-1.2px]">
                         Complex genetics. Clearer insights.
                     </h2>
 
-                    <p className="mt-3.5 text-[16px] leading-normal text-[#526A79] sm:text-[18px] lg:text-[19px]">
+                    <p className="mt-3.5 max-w-85 sm:max-w-110 md:max-w-125 lg::max-w-150 mx-auto lg:mx-0 text-[16px] leading-normal text-center lg:text-left text-[#526A79] sm:text-[18px] lg:text-[19px]">
                         A thoughtful workspace for understanding pharmacogenomic data, from upload to interpretation.
                     </p>
                 </div>
@@ -60,7 +60,7 @@ const PlatformFeatures = () => {
                     {featureCards.map((card) => (
                         <div
                             key={card.title}
-                            className={`group flex flex-col justify-between rounded-3xl p-6 sm:p-8 transition-transform duration-200 shadow-xs hover:shadow-md hover:-translate-y-1 ${card.bgColor}`}
+                            className={`group flex flex-col justify-between rounded-3xl p-6 sm:p-8 transition-all duration-200 shadow-xs hover:shadow-md hover:-translate-y-1 ${card.bgColor}`}
                         >
                             <div>
                                 <div
