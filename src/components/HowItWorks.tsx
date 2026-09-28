@@ -30,9 +30,7 @@ const HowItWorks = () => {
                         </span>
 
                         <h2 className="mt-3 text-[32px] font-bold mx-auto text-center lg:text-left lg:mx-0 leading-[1.12] tracking-[-0.8px] text-[#0B2535] sm:text-[39px] xl:tracking-[-1.2px]">
-                            A simple start.
-                            <br />
-                            A meaningful next step.
+                            A simple start. A meaningful next step.
                         </h2>
 
                         <p className="mt-3 max-w-85 sm:max-w-110 md:max-w-125 lg::max-w-150 text-[15px] mx-auto text-center lg:text-left lg:mx-0 leading-[1.6] text-[#526A79] sm:text-[17px] lg:text-[18px]">

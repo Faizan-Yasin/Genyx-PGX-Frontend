@@ -51,7 +51,7 @@ const PlatformFeatures = () => {
                         Complex genetics. Clearer insights.
                     </h2>
 
-                    <p className="mt-3.5 max-w-85 sm:max-w-110 md:max-w-125 lg::max-w-150 mx-auto lg:mx-0 text-[16px] leading-normal text-center lg:text-left text-[#526A79] sm:text-[18px] lg:text-[19px]">
+                    <p className="mt-3 max-w-85 sm:max-w-110 md:max-w-125 lg::max-w-150 mx-auto lg:mx-0 text-[16px] leading-normal text-center lg:text-left text-[#526A79] sm:text-[17px] lg:text-[18px]">
                         A thoughtful workspace for understanding pharmacogenomic data, from upload to interpretation.
                     </p>
                 </div>

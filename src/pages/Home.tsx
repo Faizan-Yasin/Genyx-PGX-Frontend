@@ -3,6 +3,7 @@ import Hero from "../components/hero/Hero"
 import Navbar from "../components/Navbar"
 import PlatformFeatures from "../components/PlatformFeatures"
 import HowItWorks from "../components/HowItWorks"
+import FaqSection from "../components/FaqSection"
 
 const Home = () => {
     return (
@@ -12,7 +13,8 @@ const Home = () => {
                 <Hero />
                 <BenefitStrip />
                 <PlatformFeatures />
-                <HowItWorks/>
+                <HowItWorks />
+                <FaqSection />
             </main>
         </div>
     )
