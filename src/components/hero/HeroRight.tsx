@@ -3,9 +3,9 @@ const HeroRight = () => {
     return (
         <div className="relative flex min-w-0 flex-col items-center lg:items-center">
 
-            <div className="pointer-events-none z-10 absolute -right-45 -top-45 hidden h-110 w-110 rounded-full border-[1.5px] border-[#D6E9E6]/40 lg:block" />
+            <div className="pointer-events-none z-10 absolute -right-37 -top-37 hidden h-110 w-110 rounded-full border-[1.5px] border-[#D6E9E6]/30 lg:block" />
 
-            <div className="pointer-events-none z-10 absolute -right-35 -top-35 hidden h-90 w-90 rounded-full border-[1.5px] border-[#D6E9E6]/40 lg:block" />
+            <div className="pointer-events-none z-10 absolute -right-27 -top-27 hidden h-90 w-90 rounded-full border-[1.5px] border-[#D6E9E6]/30 lg:block" />
 
             <div className="w-full z-20 max-w-130 md:max-w-160 lg:max-w-140 rounded-3xl border border-[#D6E4E6] bg-white p-5 shadow-[0_20px_60px_rgba(11,37,53,0.08)] sm:p-7">
 

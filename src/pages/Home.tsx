@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar"
 import PlatformFeatures from "../components/PlatformFeatures"
 import HowItWorks from "../components/HowItWorks"
 import FaqSection from "../components/FaqSection"
+import ClosingCta from "../components/ClosingCta"
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
                 <PlatformFeatures />
                 <HowItWorks />
                 <FaqSection />
+                <ClosingCta />
             </main>
         </div>
     )
