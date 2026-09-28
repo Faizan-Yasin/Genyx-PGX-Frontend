@@ -2,7 +2,7 @@ import { NavLink } from "react-router"
 
 const ClosingCta = () => {
     return (
-        <section className="w-full bg-white py-8 sm:py-10 lg:py-12">
+        <section className="w-full bg-white py-4 sm:py-6 lg:py-8">
             <div className="mx-auto max-w-360 px-6 sm:px-8 lg:px-10 xl:px-12">
 
                 <div className="relative overflow-hidden rounded-3xl bg-[#092838] px-6 py-8 sm:p-10 md:p-12 lg:p-14">

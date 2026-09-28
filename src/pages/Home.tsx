@@ -5,6 +5,7 @@ import PlatformFeatures from "../components/PlatformFeatures"
 import HowItWorks from "../components/HowItWorks"
 import FaqSection from "../components/FaqSection"
 import ClosingCta from "../components/ClosingCta"
+import Footer from "../components/Footer"
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
                 <HowItWorks />
                 <FaqSection />
                 <ClosingCta />
+                <Footer />
             </main>
         </div>
     )

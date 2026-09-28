@@ -45,7 +45,7 @@ const Navbar = () => {
                     <NavLink
                         to="/sign-in"
                         className={({ isActive }) =>
-                            `text-[15px] transition-colors duration-200 ${
+                            `text-[15px] hover:text-[#0B2535] transition-colors duration-200 ${
                                 isActive
                                     ? "font-bold text-[#0B2535]"
                                     : "font-normal text-[#526A79]"

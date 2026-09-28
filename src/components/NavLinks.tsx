@@ -40,7 +40,7 @@ const NavLinks = ({ mobile = false, closeMenu }: NavLinksProps) => {
                     to={item.path}
                     onClick={handleClick}
                     className={({ isActive }) =>
-                        `text-[15px] transition-colors duration-200 ${isActive
+                        `text-[15px] transition-colors hover:text-[#0B2535] duration-200 ${isActive
                             ? "font-bold text-[#0B2535]"
                             : "font-normal text-[#526A79]"
                         }`
