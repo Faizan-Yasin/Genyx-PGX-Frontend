@@ -19,7 +19,7 @@ const Footer = () => {
         <footer className="w-full bg-white text-[#526A79]">
             <div className="mx-auto max-w-360 px-6 sm:px-8 lg:px-10 xl:px-12">
 
-                <div className="flex flex-col py-8 sm:py-10 lg:py-12 gap-8 md:flex-row md:items-start md:justify-between">
+                <div className="flex flex-col py-8 sm:py-10 lg:py-12 gap-6 md:flex-row md:items-start md:justify-between">
 
                     <div className="flex flex-col items-start">
 
@@ -48,7 +48,7 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    <nav aria-label="Footer Navigation">
+                    <nav aria-label="Footer Navigation" className="my-auto">
                         <ul className="flex flex-wrap justify-center md:justify-start items-center gap-x-6 gap-y-3 text-[14px] font-medium sm:gap-x-8 sm:text-[15px]">
                             {navLinks.map((link) => (
                                 <li key={link.label}>

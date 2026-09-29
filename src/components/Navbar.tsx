@@ -128,7 +128,7 @@ const Navbar = () => {
                 />
 
                 <div
-                    className={`absolute right-0 top-0 h-full w-72 bg-white shadow-xl transition-transform duration-300 ease-in-out ${
+                    className={`absolute right-0 top-0 h-full w-60 bg-white shadow-xl transition-transform duration-300 ease-in-out ${
                         menuOpen
                             ? "translate-x-0"
                             : "translate-x-full"
@@ -143,7 +143,7 @@ const Navbar = () => {
 
                         <button
                             onClick={closeMenu}
-                            className="flex h-5 w-12 items-center justify-center text-xl text-[#0B2535]"
+                            className="flex h-5 w-10 items-center justify-center text-lg text-[#0B2535]"
                             aria-label="Close Navigation Menu"
                         >
                             X
