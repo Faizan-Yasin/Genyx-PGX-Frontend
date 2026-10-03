@@ -57,7 +57,7 @@ const Navbar = () => {
 
 
                     <NavLink
-                        to="/start-analysis"
+                        to="/analysis"
                         className="flex h-10 w-38 shrink-0 items-center justify-center gap-3 rounded-lg bg-[#246D69] text-sm font-bold text-white transition-colors duration-200 hover:bg-[#1d5b58]"
                     >
                         <span>Start Analysis</span>
@@ -85,7 +85,7 @@ const Navbar = () => {
 
                 <button
                     onClick={() => setMenuOpen(true)}
-                    className="flex items-center justify-center lg:hidden"
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg hover:bg-[#F0F4F6] lg:hidden cursor-pointer"
                     aria-label="Open Navigation Menu"
                     aria-expanded={menuOpen}
                     aria-controls="mobile-navigation"
@@ -143,7 +143,7 @@ const Navbar = () => {
 
                         <button
                             onClick={closeMenu}
-                            className="flex h-5 w-10 items-center justify-center text-lg text-[#0B2535]"
+                            className="flex h-9 w-9 items-center cursor-pointer justify-center text-lg text-[#0B2535]"
                             aria-label="Close Navigation Menu"
                         >
                             X
@@ -173,7 +173,7 @@ const Navbar = () => {
                         </NavLink>
 
                         <NavLink
-                            to="/start-analysis"
+                            to="/analysis"
                             onClick={closeMenu}
                             className="mt-2 flex h-11 w-full items-center justify-center gap-3 rounded-lg bg-[#246D69] text-sm font-bold text-white"
                         >

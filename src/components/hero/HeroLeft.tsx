@@ -129,7 +129,7 @@ const HeroLeft = () => {
             <div className="mt-8 flex w-[85%] flex-col gap-3.5 sm:w-auto sm:flex-row">
 
                 <NavLink
-                    to="/start-analysis"
+                    to="/analysis"
                     className="flex h-13.5 w-full items-center justify-center rounded-xl bg-[#A8E0D4] hover:bg-[#96D8CA] px-6 text-[15px] font-bold text-[#0B2535] transition-transform duration-200 hover:-translate-y-0.5 sm:w-auto sm:text-[16px]"
                 >
                     Explore your PGx

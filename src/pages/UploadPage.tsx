@@ -1,27 +1,10 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Sidebar from "../components/Sidebar"
+import { useSidebar } from "../hooks/useSidebar"
 
 const UploadPage = () => {
-    
-    const [isSidebarOpen, setIsSidebarOpen] = useState(() => {
-        if (typeof window !== "undefined") {
-            return window.innerWidth >= 768 
-        }
-        return true
-    })
 
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth < 768) {
-                setIsSidebarOpen(false)
-            } else {
-                setIsSidebarOpen(true) 
-            }
-        }
-
-        window.addEventListener("resize", handleResize)
-        return () => window.removeEventListener("resize", handleResize)
-    }, [])
+    const { isSidebarOpen, setIsSidebarOpen } = useSidebar()
 
     const [selectedFile, setSelectedFile] = useState<File | null>(null)
     const [genome, setGenome] = useState("")
@@ -37,9 +20,10 @@ const UploadPage = () => {
 
     return (
         <div className="flex h-screen w-full overflow-hidden bg-[#F4F8FA]">
+
             <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
-            <div className="flex flex-1 flex-col overflow-y-auto min-w-0">
+            <div className="flex flex-1 flex-col h-full min-w-0">
 
                 <header className="flex h-16 shrink-0 items-center justify-between border-b border-[#E1E9EC] bg-white px-3 sm:px-6">
                     <div className="flex items-center gap-2 sm:gap-3 min-w-0">
@@ -73,7 +57,7 @@ const UploadPage = () => {
                     </div>
                 </header>
 
-                <main className="flex-1 p-3.5 sm:p-6">
+                <main className="flex-1 overflow-y-auto p-3.5 sm:p-6">
                     <div className="mx-auto max-w-300">
                         <div className="mb-5 sm:mb-6">
                             <span className="inline-flex rounded-md bg-[#EAF5F2] px-2.5 py-1 text-[10px] font-bold tracking-wider text-[#28766F] uppercase">

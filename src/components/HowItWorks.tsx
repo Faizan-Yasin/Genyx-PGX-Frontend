@@ -38,7 +38,7 @@ const HowItWorks = () => {
                         </p>
 
                         <NavLink
-                            to="/start-analysis"
+                            to="/analysis"
                             className="mt-8 inline-flex h-12 mx-auto lg:mx-0 items-center justify-center gap-3 rounded-xl bg-[#286096] px-6 text-[15px] font-bold text-white transition-all duration-200 hover:bg-[#1E4B77] hover:-translate-y-0.5 sm:h-13 sm:px-7 sm:text-[16px]"
                         >
                             <span>Start with your data</span>

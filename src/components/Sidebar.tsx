@@ -22,8 +22,8 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
 
             <aside
                 className={`fixed inset-y-0 left-0 z-50 flex h-full flex-col justify-between bg-[#092838] text-white transition-all duration-300 ease-in-out shrink-0 md:static md:translate-x-0 ${isSidebarOpen
-                        ? "translate-x-0 w-60"
-                        : "-translate-x-full md:translate-x-0 md:w-16"
+                    ? "translate-x-0 w-60"
+                    : "-translate-x-full md:translate-x-0 md:w-16"
                     }`}
             >
                 <div className="flex flex-col overflow-hidden">
@@ -118,10 +118,14 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
                                 {isSidebarOpen && <span className="truncate">Overview</span>}
                             </button>
 
-                            <button
-                                type="button"
-                                className={`flex w-full items-center gap-3 rounded-xl bg-[#184657] px-3 py-2.5 text-[14px] font-bold text-white cursor-pointer ${!isSidebarOpen ? "justify-center" : ""
-                                    }`}
+                            <NavLink
+                                to="/analysis"
+                                className={({ isActive }) =>
+                                    `flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-[14px] transition-colors cursor-pointer ${isActive
+                                        ? "bg-[#184657] font-bold text-white"
+                                        : "text-[#B9CDD7] hover:bg-[#184657] hover:text-white"
+                                    } ${!isSidebarOpen ? "justify-center" : ""}`
+                                }
                                 title="New analysis"
                             >
                                 <svg
@@ -134,29 +138,25 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
                                 >
                                     <path
                                         d="M7.74377 11.2438V0.743774M12.1188 5.11877L7.74377 0.743774L3.36877 5.11877M0.743774 11.2438V14.7438H14.7438V11.2438"
-                                        stroke="#A8E0D4"
+                                        stroke="currentColor"
                                         strokeWidth="1.5"
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                     />
                                 </svg>
                                 {isSidebarOpen && <span className="truncate">New analysis</span>}
-                            </button>
+                            </NavLink>
 
-                            <button
-                                type="button"
-                                className={`flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-[14px] text-[#B9CDD7] transition-colors hover:bg-[#184657] hover:text-white cursor-pointer ${!isSidebarOpen ? "justify-center" : ""
-                                    }`}
-                                title="Reports"
+                            <NavLink
+                                to="/reports"
+                                className={({ isActive }) =>
+                                    `flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-[14px] transition-colors cursor-pointer ${isActive
+                                        ? "bg-[#184657] font-bold text-white"
+                                        : "text-[#B9CDD7] hover:bg-[#184657] hover:text-white"
+                                    } ${!isSidebarOpen ? "justify-center" : ""}`
+                                }
                             >
-                                <svg
-                                    width="16"
-                                    height="18"
-                                    viewBox="0 0 14 18"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="shrink-0"
-                                >
+                                <svg width="16" height="18" viewBox="0 0 14 18" fill="none">
                                     <path
                                         d="M12.9938 5.11877L8.61877 0.743774H1.61877C1.38671 0.743774 1.16415 0.835962 1.00006 1.00006C0.835962 1.16415 0.743774 1.38671 0.743774 1.61877V15.6188C0.743774 15.8508 0.835962 16.0734 1.00006 16.2375C1.16415 16.4016 1.38671 16.4938 1.61877 16.4938H12.1188C12.3508 16.4938 12.5734 16.4016 12.7375 16.2375C12.9016 16.0734 12.9938 15.8508 12.9938 15.6188V5.11877ZM8.61877 0.743774V5.11877H12.9938M3.36877 8.61877H10.3688M3.36877 12.1188H8.61877"
                                         stroke="currentColor"
@@ -166,7 +166,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
                                     />
                                 </svg>
                                 {isSidebarOpen && <span className="truncate">Reports</span>}
-                            </button>
+                            </NavLink>
 
                             <button
                                 type="button"
