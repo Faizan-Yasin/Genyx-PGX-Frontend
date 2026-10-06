@@ -1,7 +1,11 @@
 import { useState } from "react"
+import { useInView } from "../hooks/useInView"
 
 const FaqSection = () => {
     const [openId, setOpenId] = useState<number | null>(null)
+
+    const { ref: introRef, isInView: introInView } = useInView()
+    const { ref: faqRef, isInView: faqInView } = useInView()
 
     const toggleFaq = (id: number): void => {
         setOpenId(openId === id ? null : id)
@@ -30,7 +34,11 @@ const FaqSection = () => {
             <div className="mx-auto max-w-360 px-6 sm:px-8 lg:px-10 xl:px-12">
                 <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10 xl:gap-16">
 
-                    <div className="flex min-w-0 flex-col items-start lg:col-span-5">
+                    <div
+                        ref={introRef}
+                        className={`flex min-w-0 flex-col items-start lg:col-span-5 transition-all duration-1000 ease-out
+                           ${introInView ? "opacity-100 translate-y-0 lg:translate-x-0" : "opacity-0 translate-y-10 lg:translate-y-0 lg:-translate-x-10"}
+                     `}>
                         <span className="mx-auto lg:mx-0 text-[10px] font-bold tracking-[1.4px] text-[#246D69] uppercase sm:text-[11px]">
                             A LITTLE MORE CLARITY
                         </span>
@@ -44,7 +52,11 @@ const FaqSection = () => {
                         </p>
                     </div>
 
-                    <div className="flex flex-col border-t border-[#E5ECEE] lg:col-span-7">
+                    <div
+                        ref={faqRef}
+                        className={`flex flex-col border-t border-[#E5ECEE] lg:col-span-7 transition-all duration-1000 ease-out
+                                ${faqInView ? "opacity-100 translate-y-0 lg:translate-x-0" : "opacity-0 translate-y-10 lg:translate-y-0 lg:translate-x-10"}
+                        `}>
                         {faqData.map((item) => {
                             const isOpen = openId === item.id
 
@@ -102,9 +114,8 @@ const FaqSection = () => {
                                     </button>
 
                                     <div
-                                        className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
-                                            isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                                        }`}
+                                        className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                                            }`}
                                     >
                                         <div className="overflow-hidden">
                                             <p className="pb-6 max-w-200 text-[14px] leading-[1.65] text-[#526A79] sm:text-[16px]">

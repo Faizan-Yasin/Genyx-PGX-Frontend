@@ -1,7 +1,15 @@
+import { useInView } from "../../hooks/useInView"
 
 const HeroRight = () => {
+
+    const { ref, isInView } = useInView()
+
     return (
-        <div className="relative flex min-w-0 flex-col items-center lg:items-center">
+        <div
+            ref={ref}
+            className={`relative flex min-w-0 flex-col items-center lg:items-center transition-all duration-1000 ease-out
+                  ${isInView ? "opacity-100 translate-y-0 lg:translate-x-0" : "opacity-0 translate-y-10 lg:translate-y-0 lg:translate-x-10"}
+            `}>
 
             <div className="pointer-events-none z-10 absolute -right-37 -top-37 hidden h-110 w-110 rounded-full border-[1.5px] border-[#D6E9E6]/30 lg:block" />
 

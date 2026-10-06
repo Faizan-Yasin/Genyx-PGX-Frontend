@@ -1,5 +1,9 @@
+import { useInView } from "../hooks/useInView"
+
 const BenefitStrip = () => {
-    
+
+    const { ref, isInView } = useInView()
+
     const benefits = [
         {
             title: "Gene-level clarity",
@@ -72,11 +76,16 @@ const BenefitStrip = () => {
     return (
         <section className="w-full border-b border-[#E5ECEE] py-6 sm:py-8">
             <div className="mx-auto max-w-360 px-6 sm:px-8 lg:px-10 xl:px-12">
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+                <div
+                    ref={ref}
+                    className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
                     {benefits.map((item) => (
                         <div
                             key={item.title}
-                            className="flex items-center gap-4 rounded-2xl border border-[#E5ECEE]/60 bg-white p-5 shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md sm:p-6"
+                            className={`flex items-center gap-4 rounded-2xl border border-[#E5ECEE]/60 bg-white p-5 shadow-xs sm:p-6 transition-all ease-out hover:-translate-y-0.5 hover:shadow-md hover:duration-200 ${isInView
+                                ? "opacity-100 translate-y-0 duration-1000"
+                                : "opacity-0 translate-y-10 duration-0"
+                                }`}
                         >
                             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#EAF5F2]">
                                 {item.icon}

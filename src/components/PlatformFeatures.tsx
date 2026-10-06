@@ -1,5 +1,9 @@
+import { useInView } from "../hooks/useInView"
 
 const PlatformFeatures = () => {
+
+    const { ref: headingRef, isInView: headingInView } = useInView()
+    const { ref: cardsRef, isInView: cardsInView } = useInView()
 
     const featureCards = [
         {
@@ -42,7 +46,11 @@ const PlatformFeatures = () => {
         <section className="w-full bg-white py-8 sm:py-10 lg:py-12">
             <div className="mx-auto max-w-360 px-6 sm:px-8 lg:px-10 xl:px-12">
 
-                <div className="max-w-240">
+                <div
+                    ref={headingRef}
+                    className={`max-w-240 transition-all duration-1000 ease-out
+                        ${headingInView ? "opacity-100 translate-y-0 lg:translate-x-0" : "opacity-0 translate-y-10 lg:translate-y-0 lg:-translate-x-10"}
+                    `}>
                     <span className="text-[11px] font-bold text-center block lg:inline lg:text-left tracking-[1.4px] text-[#246D69] uppercase sm:text-[12px]">
                         THE PLATFORM
                     </span>
@@ -56,7 +64,12 @@ const PlatformFeatures = () => {
                     </p>
                 </div>
 
-                <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7 xl:mt-10">
+                <div
+                    ref={cardsRef}
+                    className={`mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7 xl:mt-10 transition-all duration-1000 ease-out
+                        ${cardsInView ? "opacity-100 translate-y-0"
+                            : "opacity-0 translate-y-10"}
+                    `}>
                     {featureCards.map((card) => (
                         <div
                             key={card.title}

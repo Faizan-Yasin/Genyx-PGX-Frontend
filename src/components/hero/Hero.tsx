@@ -11,7 +11,7 @@ const Hero = () => {
 
             <div className="relative mx-auto max-w-360 px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12 xl:px-12 xl:py-14">
 
-                <div className="grid items-start gap-14 lg:grid-cols-2 lg:gap-10 xl:gap-16">
+                <div className="grid items-start gap-10 lg:grid-cols-2 xl:gap-16">
 
                     <HeroLeft />
 

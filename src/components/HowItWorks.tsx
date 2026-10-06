@@ -1,4 +1,5 @@
 import { NavLink } from "react-router"
+import { useInView } from "../hooks/useInView"
 
 const steps = [
     {
@@ -19,12 +20,20 @@ const steps = [
 ]
 
 const HowItWorks = () => {
+
+    const { ref: contentRef, isInView: contentInView } = useInView()
+    const { ref: stepsRef, isInView: stepsInView } = useInView()
+
     return (
         <section className="w-full bg-[#F4F8FA] py-8 sm:py-10 lg:py-12">
             <div className="mx-auto max-w-360 px-6 sm:px-8 lg:px-10 xl:px-12">
                 <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-10 xl:gap-16">
 
-                    <div className="flex min-w-0 flex-col items-start lg:col-span-5">
+                    <div
+                        ref={contentRef}
+                        className={`flex min-w-0 flex-col items-start lg:col-span-5 transition-all duration-1000 ease-out
+                           ${contentInView ? "opacity-100 translate-y-0 lg:translate-x-0" : "opacity-0 translate-y-10 lg:translate-y-0 lg:-translate-x-10"}
+                        `}>
                         <span className="text-[10px] mx-auto font-bold lg:mx-0 tracking-[1.4px] text-[#246D69] uppercase sm:text-[11px]">
                             FROM FILE TO UNDERSTANDING
                         </span>
@@ -62,7 +71,11 @@ const HowItWorks = () => {
                         </NavLink>
                     </div>
 
-                    <div className="flex flex-col gap-4.5 lg:col-span-7">
+                    <div
+                        ref={stepsRef}
+                        className={`flex flex-col gap-4.5 lg:col-span-7 transition-all duration-1000 ease-outF
+                            ${stepsInView ? "opacity-100 translate-y-0 lg:translate-x-0" : "opacity-0 translate-y-10 lg:translate-y-0 lg:translate-x-10"}
+                        `}>
                         {steps.map((step) => (
                             <div
                                 key={step.number}

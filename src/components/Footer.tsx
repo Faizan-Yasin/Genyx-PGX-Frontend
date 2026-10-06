@@ -1,5 +1,6 @@
 import { NavLink } from "react-router"
 import logo from "../assets/genyx-logo.png"
+import { useInView } from "../hooks/useInView"
 
 const navLinks = [
     { label: "Platform", to: "/platform" },
@@ -15,13 +16,21 @@ const legalLinks = [
 ]
 
 const Footer = () => {
+
+    const { ref: brandRef, isInView: brandInView } = useInView()
+    const { ref: navRef, isInView: navInView } = useInView()
+
     return (
         <footer className="w-full bg-white text-[#526A79]">
             <div className="mx-auto max-w-360 px-6 sm:px-8 lg:px-10 xl:px-12">
 
                 <div className="flex flex-col py-8 sm:py-10 lg:py-12 gap-6 md:flex-row md:items-start md:justify-between">
 
-                    <div className="flex flex-col items-start">
+                    <div
+                        ref={brandRef}
+                        className={`flex flex-col items-start transition-all duration-1000 ease-out
+                                ${brandInView ? "opacity-100 translate-y-0 lg:translate-x-0" : "opacity-0 translate-y-10 lg:translate-y-0 lg:-translate-x-10"}
+                        `}>
 
                         <NavLink
                             to="/"
@@ -48,7 +57,10 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    <nav aria-label="Footer Navigation" className="my-auto">
+                    <nav
+                        ref={navRef}
+                        className={`my-auto transition-all duration-1000 ease-out ${navInView ? "opacity-100 translate-y-0 lg:translate-x-0" : "opacity-0 translate-y-10 lg:translate-y-0 lg:translate-x-10"}`}
+                        aria-label="Footer Navigation">
                         <ul className="flex flex-wrap justify-center md:justify-start items-center gap-x-6 gap-y-3 text-[14px] font-medium sm:gap-x-8 sm:text-[15px]">
                             {navLinks.map((link) => (
                                 <li key={link.label}>
