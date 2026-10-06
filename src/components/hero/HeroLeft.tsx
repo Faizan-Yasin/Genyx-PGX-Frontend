@@ -113,7 +113,7 @@ const HeroLeft = () => {
         <div
             ref={ref}
             className={`flex min-w-0 flex-col lg:items-start items-center transition-all duration-1000 ease-out
-                        ${isInView ? "opacity-100 translate-y-0 lg:translate-x-0" : "opacity-0 translate-y-10 lg:translate-y-0 lg:-translate-x-10"}
+                    ${isInView ? "opacity-100 translate-y-0 lg:translate-x-0" : "opacity-0 translate-y-10 lg:translate-y-0 lg:-translate-x-10"}
             `}>
 
             <p className="mb-6 inline-flex items-center rounded-lg bg-[#173E50] px-4 py-2 text-[10px] font-bold tracking-[1.4px] text-[#A8E0D4] sm:text-[11px]">

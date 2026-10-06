@@ -1,10 +1,19 @@
 import { useState } from "react"
 import Sidebar from "../components/Sidebar"
 import { useSidebar } from "../hooks/useSidebar"
+import { useInView } from "../hooks/useInView"
 
 const UploadPage = () => {
 
     const { isSidebarOpen, setIsSidebarOpen } = useSidebar()
+
+    const { ref: introRef, isInView: introInView } = useInView()
+    const { ref: progressRef, isInView: progressInView } = useInView()
+    const { ref: uploadRef, isInView: uploadInView } = useInView()
+    const { ref: firstfieldRef, isInView: firstfieldInView } = useInView()
+    const { ref: secondfieldRef, isInView: secondfieldInView } = useInView()
+    const { ref: authorizationRef, isInView: authorizationInView } = useInView()
+    const { ref: infoRef, isInView: infoInView } = useInView()
 
     const [selectedFile, setSelectedFile] = useState<File | null>(null)
     const [genome, setGenome] = useState("")
@@ -59,7 +68,10 @@ const UploadPage = () => {
 
                 <main className="flex-1 overflow-y-auto p-3.5 sm:p-6">
                     <div className="mx-auto max-w-300">
-                        <div className="mb-5 sm:mb-6">
+                        <div ref={introRef}
+                            className={`mb-5 sm:mb-6 transition-all duration-1000 ease-out
+                                ${introInView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5"}
+                            `}>
                             <span className="inline-flex rounded-md bg-[#EAF5F2] px-2.5 py-1 text-[10px] font-bold tracking-wider text-[#28766F] uppercase">
                                 NEW ANALYSIS
                             </span>
@@ -71,7 +83,11 @@ const UploadPage = () => {
                             </p>
                         </div>
 
-                        <div className="mb-6 flex h-12 w-full items-center justify-between rounded-xl border border-[#DDE7EA] bg-white px-2 sm:px-5 shadow-2xs">
+                        <div
+                            ref={progressRef}
+                            className={`mb-6 flex h-12 w-full items-center justify-between rounded-xl border border-[#DDE7EA] bg-white px-2 sm:px-5 shadow-2xs transition-all duration-1000 ease-out
+                                ${progressInView ? "opacity-100 translate-y-0 duration-1000" : "opacity-0 translate-y-5 duration-0"}
+                            `}>
                             <div className="flex items-center gap-1 max-[370px]:gap-1 min-[371px]:gap-1.5 sm:gap-2.5 shrink-0">
                                 <span className="flex h-5 w-5 min-[371px]:h-6 min-[371px]:w-6 shrink-0 items-center justify-center rounded-full bg-[#2867A8] text-[10px] min-[371px]:text-[11px] font-bold text-white">
                                     1
@@ -106,7 +122,11 @@ const UploadPage = () => {
 
                         <div className="grid gap-5 xl:grid-cols-[1fr_280px]">
                             <div className="flex flex-col gap-4 sm:gap-5">
-                                <section className="rounded-2xl border border-[#DDE7EA] bg-white p-4 sm:p-6 shadow-2xs">
+                                <section
+                                    ref={uploadRef}
+                                    className={`rounded-2xl border border-[#DDE7EA] bg-white p-4 sm:p-6 shadow-2xs transition-all duration-1000 ease-out
+                                        ${uploadInView ? "opacity-100 translate-y-0 xl:translate-x-0" : "opacity-0 translate-y-5 xl:translate-y-0 xl:-translate-x-5"}
+                                    `}>
                                     <div className="mb-4 flex items-center justify-between">
                                         <h2 className="text-[14px] sm:text-[15px] font-bold text-[#0B2535]">
                                             Genetic data file
@@ -172,7 +192,11 @@ const UploadPage = () => {
                                 </section>
 
                                 <div className="grid gap-4 sm:grid-cols-2">
-                                    <div>
+                                    <div ref={firstfieldRef}
+                                        className={`transition-all duration-1000 ease-out
+                                        ${firstfieldInView ? "opacity-100 translate-y-0 sm:translate-x-0" : "opacity-0 translate-y-5 sm:translate-y-0 sm:-translate-x-5"}
+                                    `}
+                                    >
                                         <label
                                             htmlFor="genome"
                                             className="mb-1.5 block text-[12px] font-bold text-[#0B2535]"
@@ -198,7 +222,12 @@ const UploadPage = () => {
                                         </div>
                                     </div>
 
-                                    <div>
+                                    <div
+                                        ref={secondfieldRef}
+                                        className={`transition-all duration-1000 ease-out
+                                        ${secondfieldInView ? "opacity-100 translate-y-0 lg:translate-x-0" : "opacity-0 translate-y-5 lg:translate-y-0 lg:translate-x-5"}
+                                    `}
+                                    >
                                         <label
                                             htmlFor="sample-id"
                                             className="mb-1.5 block text-[12px] font-bold text-[#0B2535]"
@@ -216,7 +245,11 @@ const UploadPage = () => {
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col gap-4 rounded-2xl border border-[#DDE7EA] bg-white p-4 sm:p-5">
+                                <div
+                                    ref={authorizationRef}
+                                    className={`flex flex-col gap-4 rounded-2xl border border-[#DDE7EA] bg-white p-4 sm:p-5 transition-all duration-1000 ease-out
+                                            ${authorizationInView ? "opacity-100 translate-y-0 duration-1000" : "opacity-0 translate-y-5 duration-0"}
+                                    `}>
                                     <label className="flex items-start gap-2.5 cursor-pointer text-[12px] text-[#526A79]">
                                         <input
                                             type="checkbox"
@@ -247,7 +280,11 @@ const UploadPage = () => {
                                 </div>
                             </div>
 
-                            <aside className="h-fit rounded-2xl border border-[#DDE7EA] bg-white p-4 sm:p-5">
+                            <aside
+                                ref={infoRef}
+                                className={`h-fit rounded-2xl border border-[#DDE7EA] bg-white p-4 sm:p-5 transition-all duration-1000 ease-out
+                                    ${infoInView ? "opacity-100 translate-y-0 xl:translate-x-0" : "opacity-0 translate-y-5 xl:translate-y-0 xl:translate-x-5"}
+                                `}>
                                 <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-[#EAF5F2] text-[#28766F]">
                                     <svg width="18" height="18" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M14.2313 5.60624L9.43959 0.814575H1.77292C1.51876 0.814575 1.275 0.915542 1.09528 1.09526C0.915558 1.27499 0.81459 1.51874 0.81459 1.77291V17.1062C0.81459 17.3604 0.915558 17.6042 1.09528 17.7839C1.275 17.9636 1.51876 18.0646 1.77292 18.0646H13.2729C13.5271 18.0646 13.7708 17.9636 13.9506 17.7839C14.1303 17.6042 14.2313 17.3604 14.2313 17.1062V5.60624ZM9.43959 0.814575V5.60624H14.2313M3.68959 9.43958H11.3563M3.68959 13.2729H9.43959" stroke="#358783" strokeWidth="1.62917" strokeLinecap="round" strokeLinejoin="round" />

@@ -21,7 +21,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
             )}
 
             <aside
-                className={`fixed inset-y-0 left-0 z-50 flex h-full flex-col justify-between bg-[#092838] text-white transition-all duration-300 ease-in-out shrink-0 md:static md:translate-x-0 ${isSidebarOpen
+                className={`fixed inset-y-0 left-0 z-50 flex h-full flex-col justify-between bg-[#092838] text-white transition-all duration-300 ease-out shrink-0 md:static md:translate-x-0 ${isSidebarOpen
                     ? "translate-x-0 w-60"
                     : "-translate-x-full md:translate-x-0 md:w-16"
                     }`}

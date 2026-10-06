@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 
-export const useInView = () => {
-    const ref = useRef<HTMLDivElement | null>(null)
+export const useInView = <T extends HTMLElement = HTMLDivElement>() => {
+    const ref = useRef<T | null>(null)
     const [isInView, setIsInView] = useState(false)
 
     useEffect(() => {

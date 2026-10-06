@@ -128,7 +128,7 @@ const Navbar = () => {
                 />
 
                 <div
-                    className={`absolute right-0 top-0 h-full w-60 bg-white shadow-xl transition-transform duration-300 ease-in-out ${
+                    className={`absolute right-0 top-0 h-full w-60 bg-white shadow-xl transition-transform duration-300 ease-out ${
                         menuOpen
                             ? "translate-x-0"
                             : "translate-x-full"

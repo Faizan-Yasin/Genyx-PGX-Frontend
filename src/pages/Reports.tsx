@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Sidebar from "../components/Sidebar"
 import { useSidebar } from "../hooks/useSidebar"
+import { useInView } from "../hooks/useInView"
 
 const mockReportData = {
     sampleInfo: {
@@ -59,13 +60,23 @@ const Reports = () => {
 
     const { sampleInfo, stats, geneFindings, medicationInsights } = mockReportData
 
+    const { ref: introRef, isInView: introInView } = useInView()
+    const { ref: downloadRef, isInView: downloadInView } = useInView<HTMLButtonElement>()
+    const { ref: infoRef, isInView: infoInView } = useInView()
+    const { ref: statsRef, isInView: statsInView } = useInView()
+    const { ref: tabsRef, isInView: tabsInView } = useInView()
+    const { ref: geneFindingsRef, isInView: geneFindingsInView } = useInView()
+    const { ref: medicationInsightsRef, isInView: medicationInsightsInView } = useInView()
+    const { ref: conversationRef, isInView: conversationInView } = useInView()
+    const { ref: disclaimerRef, isInView: disclaimerInView } = useInView()
+
     return (
         <div className="flex h-screen w-full overflow-hidden bg-[#F4F8FA]">
 
             <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
             <div className="flex flex-1 flex-col h-full min-w-0">
-                
+
                 <header className="flex h-16 shrink-0 items-center justify-between border-b border-[#E1E9EC] bg-white px-3 sm:px-6">
                     <div className="flex items-center gap-2 sm:gap-3 min-w-0">
                         <button
@@ -95,14 +106,19 @@ const Reports = () => {
                         <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#EAF5F2] text-[10px] font-bold text-[#28766F]">
                             GX
                         </div>
-                    </div> 
+                    </div>
                 </header>
 
                 <main className="flex-1 overflow-y-auto p-3.5 sm:p-6">
                     <div className="mx-auto w-full max-w-300 min-w-0 space-y-5 sm:space-y-6">
 
                         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                            <div>
+                            <div
+                                ref={introRef}
+                                className={`transition-all duration-1000 ease-out
+                                    ${introInView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5"}
+                                `}
+                            >
                                 <span className="inline-flex rounded-md bg-[#EAF5F2] px-2.5 py-1 text-[10px] font-bold tracking-wider text-[#28766F] uppercase">
                                     SAMPLE REPORT - ILLUSTRATIVE DATA
                                 </span>
@@ -115,8 +131,10 @@ const Reports = () => {
                             </div>
 
                             <button
+                                ref={downloadRef}
                                 type="button"
-                                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#2867A8] px-5 py-2.5 text-[13px] font-bold text-white shadow-2xs hover:bg-[#1E5288] transition-all duration-200 hover:-translate-y-0.5 cursor-pointer shrink-0 sm:mt-2"
+                                className={`inline-flex items-center justify-center gap-2 rounded-xl bg-[#2867A8] px-5 py-2.5 text-[13px] font-bold text-white shadow-2xs hover:bg-[#1E5288] transition-all hover:duration-200 ease-out hover:-translate-y-0.5 cursor-pointer shrink-0 sm:mt-2
+                                        ${downloadInView ? "opacity-100 translate-y-0 duration-1000" : "opacity-0 -translate-y-5 duration-0"}`}
                             >
                                 <span>Download PDF</span>
                                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -125,7 +143,11 @@ const Reports = () => {
                             </button>
                         </div>
 
-                        <div className="flex items-start gap-3 rounded-2xl border border-[#D0E2EB] bg-[#EDF6FA] p-4 text-[#0B2535]">
+                        <div
+                            ref={infoRef}
+                            className={`flex items-start gap-3 rounded-2xl border border-[#D0E2EB] bg-[#EDF6FA] p-4 text-[#0B2535] transition-all duration-1000 ease-out
+                                ${infoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}
+                            `}>
                             <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#2867A8] text-[11px] font-bold text-[#2867A8] mt-0.5">
                                 i
                             </div>
@@ -135,7 +157,11 @@ const Reports = () => {
                             </div>
                         </div>
 
-                        <div className="grid gap-4 grid-cols-1 sm:grid-cols-3">
+                        <div
+                            ref={statsRef}
+                            className={`grid gap-4 grid-cols-1 sm:grid-cols-3 transition-all duration-1000 ease-out
+                                ${statsInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}
+                            `}>
                             <div className="flex items-center justify-between rounded-2xl border border-[#DDE7EA] bg-white p-4 sm:p-5 shadow-2xs">
                                 <div>
                                     <div className="text-[24px] sm:text-[28px] font-bold text-[#0B2535]">{stats.genesShown}</div>
@@ -173,7 +199,11 @@ const Reports = () => {
                             </div>
                         </div>
 
-                        <div className="w-full min-w-0 border-b border-[#E1E9EC]">
+                        <div
+                            ref={tabsRef}
+                            className={`w-full min-w-0 border-b border-[#E1E9EC] transition-all duration-1000 ease-out
+                                ${tabsInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}
+                            `}>
                             <nav className="-mb-px flex gap-6 sm:gap-8 overflow-x-auto">
                                 <button
                                     type="button"
@@ -208,7 +238,11 @@ const Reports = () => {
                             </nav>
                         </div>
 
-                        <div className="w-full min-w-0 rounded-2xl border border-[#DDE7EA] bg-white shadow-2xs overflow-hidden">
+                        <div
+                            ref={geneFindingsRef}
+                            className={`w-full min-w-0 rounded-2xl border border-[#DDE7EA] bg-white shadow-2xs overflow-hidden transition-all duration-1000 ease-out
+                            ${geneFindingsInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}
+                            `}>
                             <div className="hidden md:grid md:grid-cols-5 bg-[#F4F8FA] px-5 py-3.5 text-[10px] font-bold uppercase tracking-wider text-[#617887]">
                                 <div>GENE</div>
                                 <div>GENOTYPE</div>
@@ -219,8 +253,8 @@ const Reports = () => {
 
                             <div className="divide-y divide-[#E1E9EC]">
                                 {geneFindings.map((row) => (
-                                    <div 
-                                        key={row.id} 
+                                    <div
+                                        key={row.id}
                                         className="flex flex-col gap-2 p-4 md:grid md:grid-cols-5 md:items-center md:gap-4 md:px-5 md:py-4 hover:bg-[#F9FCFD] transition-colors cursor-pointer"
                                     >
                                         <div className="flex items-center justify-between md:block">
@@ -271,7 +305,11 @@ const Reports = () => {
 
                         <div className="grid gap-5 sm:gap-6 grid-cols-1 xl:grid-cols-[1fr_320px]">
 
-                            <div className="rounded-2xl border border-[#DDE7EA] bg-white p-4 sm:p-6 shadow-2xs">
+                            <div
+                                ref={medicationInsightsRef}
+                                className={`rounded-2xl border border-[#DDE7EA] bg-white p-4 sm:p-6 shadow-2xs transition-all duration-1000 ease-out
+                                    ${medicationInsightsInView ? "opacity-100 translate-y-0 xl:translate-x-0" : "opacity-0 translate-y-5 xl:translate-y-0 xl:-translate-x-5"}
+                                `}>
                                 <h2 className="text-[15px] sm:text-[17px] font-bold text-[#0B2535]">Medication insights</h2>
                                 <p className="mt-0.5 text-[11px] sm:text-[12px] text-[#617887]">Examples connected to the CYP2C19 finding</p>
 
@@ -290,7 +328,11 @@ const Reports = () => {
                                 </div>
                             </div>
 
-                            <div className="flex flex-col justify-between rounded-2xl bg-[#092838] p-4 sm:p-6 text-white shadow-2xs">
+                            <div
+                                ref={conversationRef}
+                                className={`flex flex-col justify-between rounded-2xl bg-[#092838] p-4 sm:p-6 text-white shadow-2xs transition-all duration-1000 ease-out
+                                    ${conversationInView ? "opacity-100 translate-y-0 xl:translate-x-0" : "opacity-0 translate-y-5 xl:translate-y-0 xl:translate-x-5"}
+                             `}>
                                 <div>
                                     <div className="mb-3 flex items-center gap-2">
                                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8E0D4" strokeWidth="1.8">
@@ -315,15 +357,19 @@ const Reports = () => {
 
                         </div>
 
-                        <div className="space-y-1 text-[11px] text-[#617887]">
+                        <div
+                            ref={disclaimerRef}
+                            className={`space-y-1 text-[11px] text-[#617887] transition-all duration-1000 ease-out
+                                ${disclaimerInView ? "opacity-100 translate-y-0 sm:translate-x-0" : "opacity-0 translate-y-5 sm:translate-y-0 sm:-translate-x-5"}
+                            `}>
                             <p>Coverage limitations are shown for each gene. Missing data does not imply normal function.</p>
                             <p>Reference: CPIC guideline publications · View evidence and methods for interpretation details.</p>
                         </div>
 
                     </div>
                 </main>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
 
