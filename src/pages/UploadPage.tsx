@@ -125,7 +125,7 @@ const UploadPage = () => {
                                 <section
                                     ref={uploadRef}
                                     className={`rounded-2xl border border-[#DDE7EA] bg-white p-4 sm:p-6 shadow-2xs transition-all duration-1000 ease-out
-                                        ${uploadInView ? "opacity-100 translate-y-0 xl:translate-x-0" : "opacity-0 translate-y-5 xl:translate-y-0 xl:-translate-x-5"}
+                                        ${uploadInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}
                                     `}>
                                     <div className="mb-4 flex items-center justify-between">
                                         <h2 className="text-[14px] sm:text-[15px] font-bold text-[#0B2535]">
@@ -283,7 +283,7 @@ const UploadPage = () => {
                             <aside
                                 ref={infoRef}
                                 className={`h-fit rounded-2xl border border-[#DDE7EA] bg-white p-4 sm:p-5 transition-all duration-1000 ease-out
-                                    ${infoInView ? "opacity-100 translate-y-0 xl:translate-x-0" : "opacity-0 translate-y-5 xl:translate-y-0 xl:translate-x-5"}
+                                    ${infoInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}
                                 `}>
                                 <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-[#EAF5F2] text-[#28766F]">
                                     <svg width="18" height="18" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">

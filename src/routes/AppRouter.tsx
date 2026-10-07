@@ -6,6 +6,7 @@ import Resources from "../pages/Resources"
 import NotFound from "../pages/NotFound"
 import UploadPage from "../pages/UploadPage"
 import Reports from "../pages/Reports"
+import Overview from "../pages/Overview"
 
 const AppRouter = () => {
     return (
@@ -16,6 +17,7 @@ const AppRouter = () => {
             <Route path="/resources" element={<Resources />} />
             <Route path="/analysis" element={<UploadPage />} />
             <Route path="/reports" element={<Reports />} />
+            <Route path="/overview" element={<Overview />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     )

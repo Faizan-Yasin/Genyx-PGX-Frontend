@@ -44,7 +44,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
                             <img
                                 src={logo}
                                 alt="Genyx Logo"
-                                className="h-8 w-auto shrink-0"
+                                className="h-9 w-auto shrink-0 bg-white rounded-md p-0.5"
                             />
                             {isSidebarOpen && (
                                 <div className="flex items-baseline gap-1 overflow-hidden whitespace-nowrap">
@@ -93,10 +93,14 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
                         )}
 
                         <nav className="space-y-1.5">
-                            <button
-                                type="button"
-                                className={`flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-[14px] text-[#B9CDD7] transition-colors hover:bg-[#184657] hover:text-white cursor-pointer ${!isSidebarOpen ? "justify-center" : ""
-                                    }`}
+                            <NavLink
+                                to="/overview"
+                                className={({ isActive }) =>
+                                    `flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-[14px] transition-colors cursor-pointer ${isActive
+                                        ? "bg-[#184657] font-bold text-white"
+                                        : "text-[#B9CDD7] hover:bg-[#184657] hover:text-white"
+                                    } ${!isSidebarOpen ? "justify-center" : ""}`
+                                }
                                 title="Overview"
                             >
                                 <svg
@@ -115,8 +119,9 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
                                         strokeLinejoin="round"
                                     />
                                 </svg>
+
                                 {isSidebarOpen && <span className="truncate">Overview</span>}
-                            </button>
+                            </NavLink>
 
                             <NavLink
                                 to="/analysis"
@@ -168,10 +173,14 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
                                 {isSidebarOpen && <span className="truncate">Reports</span>}
                             </NavLink>
 
-                            <button
-                                type="button"
-                                className={`flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-[14px] text-[#B9CDD7] transition-colors hover:bg-[#184657] hover:text-white cursor-pointer ${!isSidebarOpen ? "justify-center" : ""
-                                    }`}
+                            <NavLink
+                                to="/resources"
+                                className={({ isActive }) =>
+                                    `flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-[14px] transition-colors cursor-pointer ${isActive
+                                        ? "bg-[#184657] font-bold text-white"
+                                        : "text-[#B9CDD7] hover:bg-[#184657] hover:text-white"
+                                    } ${!isSidebarOpen ? "justify-center" : ""}`
+                                }
                                 title="Resources"
                             >
                                 <svg
@@ -190,8 +199,9 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
                                         strokeLinejoin="round"
                                     />
                                 </svg>
+
                                 {isSidebarOpen && <span className="truncate">Resources</span>}
-                            </button>
+                            </NavLink>
                         </nav>
                     </div>
                 </div>
