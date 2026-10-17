@@ -44,7 +44,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
                             <img
                                 src={logo}
                                 alt="Genyx Logo"
-                                className="h-9 w-auto shrink-0 bg-white rounded-md p-0.5"
+                                className="h-9 w-auto shrink-0 bg-white rounded-md"
                             />
                             {isSidebarOpen && (
                                 <div className="flex items-baseline gap-1 overflow-hidden whitespace-nowrap">

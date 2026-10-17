@@ -2,11 +2,11 @@ import { Routes, Route } from "react-router"
 import Home from '../pages/Home'
 import HowItWorks from "../pages/HowItWorks"
 import ForClinicians from "../pages/ForClinicians"
-import Resources from "../pages/Resources"
+import Resources from "../pages/Resources/Resources"
 import NotFound from "../pages/NotFound"
-import UploadPage from "../pages/UploadPage"
-import Reports from "../pages/Reports"
-import Overview from "../pages/Overview"
+import UploadPage from "../pages/UploadPage/UploadPage"
+import Reports from "../pages/Reports/Reports"
+import Overview from "../pages/Overview/Overview"
 
 const AppRouter = () => {
     return (

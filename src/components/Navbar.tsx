@@ -1,9 +1,10 @@
 import { useState } from "react"
-import { NavLink } from "react-router"
+import { Link, NavLink } from "react-router"
 import logo from "../assets/genyx-logo.png"
 import NavLinks from "./NavLinks"
 
 const Navbar = () => {
+
     const [menuOpen, setMenuOpen] = useState(false)
 
     const closeMenu = () => {
@@ -16,20 +17,20 @@ const Navbar = () => {
 
                 <NavLink
                     to="/"
-                    className="flex shrink-0 items-center gap-1"
+                    className="flex shrink-0 items-center"
                     aria-label="Genyx PGx"
                 >
                     <img
                         src={logo}
                         alt="Genyx Logo"
-                        className="h-10 w-auto"
+                        className="h-12 w-auto"
                     />
 
                     <span className="text-2xl font-bold text-[#0B2535]">
                         Genyx
                     </span>
 
-                    <span className="text-[13px] font-medium text-[#246D69]">
+                    <span className="text-[13px] font-medium text-[#246D69] ml-1">
                         PGx
                     </span>
                 </NavLink>
@@ -45,10 +46,9 @@ const Navbar = () => {
                     <NavLink
                         to="/sign-in"
                         className={({ isActive }) =>
-                            `text-[15px] hover:text-[#0B2535] transition-colors duration-200 ${
-                                isActive
-                                    ? "font-bold text-[#0B2535]"
-                                    : "font-normal text-[#526A79]"
+                            `text-[15px] hover:text-[#0B2535] transition-colors duration-200 ${isActive
+                                ? "font-bold text-[#0B2535]"
+                                : "font-normal text-[#526A79]"
                             }`
                         }
                     >
@@ -56,7 +56,7 @@ const Navbar = () => {
                     </NavLink>
 
 
-                    <NavLink
+                    <Link
                         to="/analysis"
                         className="flex h-10 w-38 shrink-0 items-center justify-center gap-3 rounded-lg bg-[#246D69] text-sm font-bold text-white transition-colors duration-200 hover:bg-[#1d5b58]"
                     >
@@ -78,7 +78,7 @@ const Navbar = () => {
                                 strokeLinejoin="round"
                             />
                         </svg>
-                    </NavLink>
+                    </Link>
 
                 </div>
 
@@ -112,27 +112,24 @@ const Navbar = () => {
 
             <div
                 id="mobile-navigation"
-                className={`fixed inset-0 z-50 lg:hidden ${
-                    menuOpen ? "pointer-events-auto" : "pointer-events-none"
-                }`}
+                className={`fixed inset-0 z-50 lg:hidden ${menuOpen ? "pointer-events-auto" : "pointer-events-none"
+                    }`}
             >
 
                 <div
-                    className={`absolute inset-0 bg-black/20 transition-opacity duration-300 ${
-                        menuOpen
+                    className={`absolute inset-0 bg-black/20 transition-opacity duration-300 ${menuOpen
                             ? "opacity-100"
                             : "opacity-0"
-                    }`}
+                        }`}
                     onClick={closeMenu}
                     aria-hidden="true"
                 />
 
                 <div
-                    className={`absolute right-0 top-0 h-full w-60 bg-white shadow-xl transition-transform duration-300 ease-out ${
-                        menuOpen
+                    className={`absolute right-0 top-0 h-full w-60 bg-white shadow-xl transition-transform duration-300 ease-out ${menuOpen
                             ? "translate-x-0"
                             : "translate-x-full"
-                    }`}
+                        }`}
                 >
 
                     <div className="flex items-center justify-between border-b border-gray-100 px-6 py-4">
@@ -146,7 +143,20 @@ const Navbar = () => {
                             className="flex h-9 w-9 items-center cursor-pointer justify-center text-lg text-[#0B2535]"
                             aria-label="Close Navigation Menu"
                         >
-                            X
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 18 18"
+                                fill="none"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M3 3L15 15M15 3L3 15"
+                                    stroke="#0B2535"
+                                    strokeWidth="1.7"
+                                    strokeLinecap="round"
+                                />
+                            </svg>
                         </button>
 
                     </div>
@@ -162,17 +172,16 @@ const Navbar = () => {
                             to="/sign-in"
                             onClick={closeMenu}
                             className={({ isActive }) =>
-                                `text-[15px] ${
-                                    isActive
-                                        ? "font-bold text-[#0B2535]"
-                                        : "font-normal text-[#526A79]"
+                                `text-[15px] ${isActive
+                                    ? "font-bold text-[#0B2535]"
+                                    : "font-normal text-[#526A79]"
                                 }`
                             }
                         >
                             Sign in
                         </NavLink>
 
-                        <NavLink
+                        <Link
                             to="/analysis"
                             onClick={closeMenu}
                             className="mt-2 flex h-11 w-full items-center justify-center gap-3 rounded-lg bg-[#246D69] text-sm font-bold text-white"
@@ -195,7 +204,7 @@ const Navbar = () => {
                                     strokeLinejoin="round"
                                 />
                             </svg>
-                        </NavLink>
+                        </Link>
 
                     </div>
 
